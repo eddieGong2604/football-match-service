@@ -7,6 +7,8 @@ This Spring Boot application exposes an endpoint capable of searching matches in
 Clone this repository to your local machine, change current directory into /scripts folder and run deploy.sh.
 
 ```
+git clone https://github.com/eddieGong2604/football-match-service.git
+cd scripts
 chmod +x deploy.sh
 ./deploy.sh football-match-service
 ```
