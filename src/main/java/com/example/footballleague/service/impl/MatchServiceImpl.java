@@ -23,7 +23,7 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public List<Match> getMatches(MatchFilterRequestDTO matchFilter) {
-        String redisKey = matchFilter.getRedisKey();
+        String redisKey = matchFilter.obtainRedisKey();
         List<Match> redisCache = redisTemplate.opsForValue().get(redisKey);
         if (redisCache != null) {
             return redisCache;

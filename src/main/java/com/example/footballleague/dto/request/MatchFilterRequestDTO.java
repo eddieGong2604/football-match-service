@@ -16,7 +16,7 @@ public class MatchFilterRequestDTO {
     private String season;
     private String teamId;
 
-    public String getRedisKey() {
+    public String obtainRedisKey() {
         return "" + leagueId + countryId + season + teamId;
     }
 
