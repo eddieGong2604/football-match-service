@@ -1,6 +1,6 @@
 # Football Match Service
 
-This Spring Boot application exposes 1 endpoint that is capable of searching matches in a football league system based on league, country, team, and season.
+This Spring Boot application exposes an endpoint capable of searching matches in a football league system based on league, country, team, and season.
 
 ### How to run
 
