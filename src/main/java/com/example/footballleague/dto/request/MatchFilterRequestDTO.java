@@ -5,16 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class MatchFilterRequestDTO {
 
-    private String leagueId;
-    private String countryId;
+    private UUID leagueId;
+    private UUID countryId;
     private String season;
-    private String teamId;
+    private UUID teamId;
 
     public String obtainRedisKey() {
         return "" + leagueId + countryId + season + teamId;

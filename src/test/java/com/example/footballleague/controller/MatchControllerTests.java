@@ -34,7 +34,7 @@ public class MatchControllerTests {
 
     @Test
     public void getMatchesByCountryAndSeason() throws Exception {
-        String countryId = UUID.randomUUID().toString();
+        UUID countryId = UUID.randomUUID();
         String season = "Season 1";
         MatchFilterRequestDTO matchFilter = MatchFilterRequestDTO.builder()
                 .countryId(countryId).season(season)
@@ -48,7 +48,7 @@ public class MatchControllerTests {
                                 .id(UUID.randomUUID())
                                 .leagueName("League 1")
                                 .country(Country.builder()
-                                        .id(UUID.fromString(countryId))
+                                        .id(countryId)
                                         .countryName("Vietnam")
                                         .build())
                                 .season("Season 1")
@@ -67,18 +67,18 @@ public class MatchControllerTests {
         );
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/matches")
-                .param("countryId", countryId)
+                .param("countryId", countryId.toString())
                 .param("season", season)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].league.country.id", is(countryId)))
+                .andExpect(jsonPath("$[0].league.country.id", is(countryId.toString())))
                 .andExpect(jsonPath("$[0].league.season", is(season)));
     }
 
     @Test
     public void getMatchesByLeagueAndSeason() throws Exception {
-        String leagueId = UUID.randomUUID().toString();
+        UUID leagueId = UUID.randomUUID();
         String season = "Season 1";
         MatchFilterRequestDTO matchFilter = MatchFilterRequestDTO.builder()
                 .leagueId(leagueId).season(season)
@@ -89,7 +89,7 @@ public class MatchControllerTests {
                         .homeTeam(Team.builder().id(UUID.randomUUID()).teamName("Team 1").build())
                         .awayTeam(Team.builder().id(UUID.randomUUID()).teamName("Team 2").build())
                         .league(League.builder()
-                                .id(UUID.fromString(leagueId))
+                                .id(leagueId)
                                 .leagueName("League 1")
                                 .country(Country.builder()
                                         .id(UUID.randomUUID())
@@ -111,18 +111,18 @@ public class MatchControllerTests {
         );
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/matches")
-                .param("leagueId", leagueId)
+                .param("leagueId", leagueId.toString())
                 .param("season", season)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].league.id", is(leagueId)))
+                .andExpect(jsonPath("$[0].league.id", is(leagueId.toString())))
                 .andExpect(jsonPath("$[0].league.season", is(season)));
     }
 
     @Test
     public void getMatchesByTeamAndSeason() throws Exception {
-        String teamId = UUID.randomUUID().toString();
+        UUID teamId = UUID.randomUUID();
         String season = "Season 1";
         MatchFilterRequestDTO matchFilter = MatchFilterRequestDTO.builder()
                 .teamId(teamId).season(season)
@@ -130,7 +130,7 @@ public class MatchControllerTests {
         Mockito.when(matchService.getMatches(matchFilter)).thenReturn(
                 Collections.singletonList(Match.builder()
                         .id(UUID.randomUUID())
-                        .homeTeam(Team.builder().id(UUID.fromString(teamId)).teamName("Team 1").build())
+                        .homeTeam(Team.builder().id(teamId).teamName("Team 1").build())
                         .awayTeam(Team.builder().id(UUID.randomUUID()).teamName("Team 2").build())
                         .league(League.builder()
                                 .id(UUID.randomUUID())
@@ -155,12 +155,12 @@ public class MatchControllerTests {
         );
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/matches")
-                .param("teamId", teamId)
+                .param("teamId", teamId.toString())
                 .param("season", season)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].homeTeam.id", is(teamId)))
+                .andExpect(jsonPath("$[0].homeTeam.id", is(teamId.toString())))
                 .andExpect(jsonPath("$[0].league.season", is(season)));
     }
 
