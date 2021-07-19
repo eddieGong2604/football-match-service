@@ -8,7 +8,7 @@ Clone this repository to your local machine, change current directory into /scri
 
 ```
 git clone https://github.com/eddieGong2604/football-match-service.git
-cd scripts
+cd football-match-service/scripts
 chmod +x deploy.sh
 ./deploy.sh football-match-service
 ```
