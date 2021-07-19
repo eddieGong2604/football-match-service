@@ -19,3 +19,5 @@ services:
   cache:
     image: 'redis:6.0'
     container_name: cache
+    ports:
+      - "6379:6379"
