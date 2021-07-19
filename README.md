@@ -15,4 +15,4 @@ The service will be running at http://localhost:8080.
 
 ### API Docs
 
-Swagger is used to generate API Docs from Spring controllers. Once the application is up, API Docs will be available at http://localhost:8080/swagger-ui/index.html.
+Swagger is used to generate API Docs from Spring controllers. Once the application is up, API Docs will be available at http://localhost:8080/swagger-ui.html.
