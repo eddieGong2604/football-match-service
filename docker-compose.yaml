@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  app:
+    image: '${service_name}:latest'
+    build:
+      context: .
+    container_name: ${service_name}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cache
+    environment:
+      - DB_URL=jdbc:h2:mem:matches
+      - DB_USER=sa
+      - DB_PASS=
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+  cache:
+    image: 'redis:6.0'
+    container_name: cache
