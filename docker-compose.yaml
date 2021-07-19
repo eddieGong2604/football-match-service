@@ -14,7 +14,7 @@ services:
       - DB_URL=jdbc:h2:mem:matches
       - DB_USER=sa
       - DB_PASS=
-      - REDIS_HOST=localhost
+      - REDIS_HOST=cache
       - REDIS_PORT=6379
   cache:
     image: 'redis:6.0'
