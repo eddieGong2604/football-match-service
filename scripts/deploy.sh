@@ -15,4 +15,4 @@ service_name=$1
 cd ..
 mvn clean install
 docker build --build-arg service_name=${service_name} -t ${service_name}:latest .
-service_name=${service_name} docker-compose up
+service_name=${service_name} docker-compose up --remove-orphans
