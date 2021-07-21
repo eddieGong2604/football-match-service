@@ -2,11 +2,11 @@ if [[ -z $1 ]]; then
   echo """
 HOW TO RUN:
 
-  ./builddocker.sh <service_name>
+  ./deploy.sh <service_name>
 
 Example:
 
-  ./builddocker.sh football-match-service
+  ./deploy.sh football-match-service
   """
   exit 1
 fi
