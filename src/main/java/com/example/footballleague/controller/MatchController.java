@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class MatchController {
 
     private final MatchService matchService;
+
     @Operation(summary = "Get matches based on search params. If none provided, return all.")
     @GetMapping
     public ResponseEntity<?> getMatches(MatchFilterRequestDTO matchFilterRequestDTO) {
@@ -43,7 +44,7 @@ public class MatchController {
     @PostMapping
     public ResponseEntity<?> createMatch(@RequestBody MatchCreateRequestDTO dto) {
         Match match = matchService.createMatch(dto);
-        return new ResponseEntity<>(MatchResponseDTO.fromModel(match), HttpStatus.OK);
+        return new ResponseEntity<>(MatchResponseDTO.fromModel(match), HttpStatus.CREATED);
     }
 }
 

@@ -45,7 +45,7 @@ public class TeamController {
     @PostMapping
     public ResponseEntity<?> createTeam(@RequestBody TeamCreateRequestDTO dto) {
         Team team = teamService.createTeam(dto);
-        return new ResponseEntity<>(TeamResponseDTO.fromModel(team), HttpStatus.OK);
+        return new ResponseEntity<>(TeamResponseDTO.fromModel(team), HttpStatus.CREATED);
     }
     /*Need test*/
 

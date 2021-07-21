@@ -44,6 +44,6 @@ public class LeagueController {
     @PostMapping
     public ResponseEntity<?> createLeague(@RequestBody LeagueCreateRequestDTO dto) {
         League league = leagueService.createLeague(dto);
-        return new ResponseEntity<>(LeagueResponseDTO.fromModel(league), HttpStatus.OK);
+        return new ResponseEntity<>(LeagueResponseDTO.fromModel(league), HttpStatus.CREATED);
     }
 }
