@@ -1,10 +1,14 @@
 package com.example.footballleague.model;
 
 import com.example.footballleague.model.base.BaseEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -20,6 +24,6 @@ public class Country extends BaseEntity {
     private String countryName;
 
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
-    private List<League> leagues;
+    private List<League> leagues = new ArrayList<>();
 
 }

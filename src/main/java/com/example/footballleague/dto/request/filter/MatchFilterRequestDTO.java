@@ -1,4 +1,4 @@
-package com.example.footballleague.dto.request;
+package com.example.footballleague.dto.request.filter;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,4 @@ public class MatchFilterRequestDTO {
     private UUID countryId;
     private String season;
     private UUID teamId;
-
-    public String obtainRedisKey() {
-        return "" + leagueId + countryId + season + teamId;
-    }
-
 }

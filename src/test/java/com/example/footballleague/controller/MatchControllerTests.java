@@ -1,6 +1,6 @@
 package com.example.footballleague.controller;
 
-import com.example.footballleague.dto.request.MatchFilterRequestDTO;
+import com.example.footballleague.dto.request.filter.MatchFilterRequestDTO;
 import com.example.footballleague.model.Country;
 import com.example.footballleague.model.League;
 import com.example.footballleague.model.Match;

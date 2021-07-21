@@ -1,7 +1,10 @@
 package com.example.footballleague.model;
 
 import com.example.footballleague.model.base.BaseEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;

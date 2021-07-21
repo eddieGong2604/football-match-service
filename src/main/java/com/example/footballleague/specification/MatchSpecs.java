@@ -21,7 +21,7 @@ public class MatchSpecs {
             if (countryId == null) {
                 return cb.conjunction();
             }
-            return cb.equal(root.join(Match_.LEAGUE).join(League_.COUNTRY).get(Country_.ID).as(String.class), countryId.toString());
+            return cb.equal(root.join(Match_.LEAGUE).join(League_.COUNTRY).get(Country_.ID), countryId);
         };
     }
 
@@ -30,7 +30,7 @@ public class MatchSpecs {
             if (leagueId == null) {
                 return cb.conjunction();
             }
-            return cb.equal(root.join(Match_.LEAGUE).get(League_.ID).as(String.class), leagueId.toString());
+            return cb.equal(root.join(Match_.LEAGUE).get(League_.ID), leagueId);
         };
     }
 
@@ -40,8 +40,8 @@ public class MatchSpecs {
                 return cb.conjunction();
             }
             return cb.or(
-                    cb.equal(root.get(Match_.homeTeam).get(Team_.ID).as(String.class), teamId.toString()),
-                    cb.equal(root.get(Match_.awayTeam).get(Team_.ID).as(String.class), teamId.toString())
+                    cb.equal(root.get(Match_.homeTeam).get(Team_.ID), teamId),
+                    cb.equal(root.get(Match_.awayTeam).get(Team_.ID), teamId)
             );
         };
     }

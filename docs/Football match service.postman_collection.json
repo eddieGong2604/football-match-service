@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "1e079771-ceea-4761-a8a9-abd992d25c13",
+		"name": "Football match service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create country",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"countryName\": \"England\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/countries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get country by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/countries/{{countryId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"countries",
+						"{{countryId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/countries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create league",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get league by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/leagues/{{leagueId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"leagues",
+						"{{leagueId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get leagues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/leagues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"leagues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create home team",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const team = pm.response.json();\r",
+							"pm.environment.set(\"homeTeamId\", team.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teamName\": \"Chelsea\",\r\n    \"leagueId\" : \"{{leagueId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create away team",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const team = pm.response.json();\r",
+							"pm.environment.set(\"awayTeamId\", team.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teamName\": \"MU\",\r\n    \"leagueId\" : \"{{leagueId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get team by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get match by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/matches?leagueId={{leagueId}}&countryId={{countryId}}&season=2021/2022&teamId={{homeTeamId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"matches"
+					],
+					"query": [
+						{
+							"key": "leagueId",
+							"value": "{{leagueId}}"
+						},
+						{
+							"key": "countryId",
+							"value": "{{countryId}}"
+						},
+						{
+							"key": "season",
+							"value": "2021/2022"
+						},
+						{
+							"key": "teamId",
+							"value": "{{homeTeamId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

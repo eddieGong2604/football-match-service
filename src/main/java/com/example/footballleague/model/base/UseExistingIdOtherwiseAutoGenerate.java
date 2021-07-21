@@ -1,9 +1,10 @@
 package com.example.footballleague.model.base;
 
-import java.io.Serializable;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.UUIDGenerator;
+
+import java.io.Serializable;
 
 public class UseExistingIdOtherwiseAutoGenerate extends UUIDGenerator {
 
