@@ -1,10 +1,12 @@
 # Football Match Service
 
-This Spring Boot application exposes an endpoint capable of searching matches in a football league system based on league, country, team, and season.
+This Spring Boot application exposes several endpoint capable of adding and reading information of a football association, including Countries, Leagues, Teams, and Matches.
 
 ### How to run
 
-Clone this repository to your local machine, change current directory into /scripts folder and run deploy.sh.
+Make sure Docker is installed.
+
+Clone this repository to your local machine, change current directory into /scripts folder and run deploy.sh with argument "football-match-service".
 
 ```
 git clone https://github.com/eddieGong2604/football-match-service.git
