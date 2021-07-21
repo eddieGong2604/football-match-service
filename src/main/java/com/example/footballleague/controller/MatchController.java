@@ -31,7 +31,6 @@ public class MatchController {
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
 
-    /*Need test*/
     @Operation(summary = "Get match by id.")
     @GetMapping("/{matchId}")
     public ResponseEntity<?> getMatchById(@PathVariable("matchId") UUID matchId) {
