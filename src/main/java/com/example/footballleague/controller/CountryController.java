@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class CountryController {
     private final CountryService countryService;
 
+    /*Need test*/
 
     @Operation(summary = "Get countries based on search params. If none provided, return all.")
     @GetMapping
@@ -30,12 +31,15 @@ public class CountryController {
                 .map(CountryResponseDTO::fromModel)
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
+    /*Need test*/
+
     @Operation(summary = "Get country by id.")
     @GetMapping("/{countryId}")
     public ResponseEntity<?> getCountryById(@PathVariable UUID countryId) {
         Country country = countryService.getCountryById(countryId);
         return new ResponseEntity<>(CountryResponseDTO.fromModel(country), HttpStatus.OK);
     }
+    /*Need test*/
 
     @Operation(summary = "Create country.")
     @PostMapping

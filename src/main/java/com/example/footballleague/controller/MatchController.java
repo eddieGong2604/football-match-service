@@ -29,12 +29,16 @@ public class MatchController {
                 .map(MatchResponseDTO::fromModel)
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
+
+    /*Need test*/
     @Operation(summary = "Get match by id.")
     @GetMapping("/{matchId}")
     public ResponseEntity<?> getMatchById(@PathVariable("matchId") UUID matchId) {
         Match match = matchService.getMatchById(matchId);
         return new ResponseEntity<>(MatchResponseDTO.fromModel(match), HttpStatus.OK);
     }
+    /*Need test*/
+
     @Operation(summary = "Create match.")
     @PostMapping
     public ResponseEntity<?> createMatch(@RequestBody MatchCreateRequestDTO dto) {

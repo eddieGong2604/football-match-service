@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class LeagueController {
     private final LeagueService leagueService;
+    /*Need test*/
 
     @Operation(summary = "Get leagues based on search params. If none provided, return all.")
     @GetMapping
@@ -29,12 +30,16 @@ public class LeagueController {
                 .map(LeagueResponseDTO::fromModel)
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
+    /*Need test*/
+
     @Operation(summary = "Get league by id.")
     @GetMapping("/{leagueId}")
     public ResponseEntity<?> getLeagueById(@PathVariable("leagueId") UUID leagueId) {
         League league = leagueService.getLeagueById(leagueId);
         return new ResponseEntity<>(LeagueResponseDTO.fromModel(league), HttpStatus.OK);
     }
+    /*Need test*/
+
     @Operation(summary = "Create league.")
     @PostMapping
     public ResponseEntity<?> createLeague(@RequestBody LeagueCreateRequestDTO dto) {

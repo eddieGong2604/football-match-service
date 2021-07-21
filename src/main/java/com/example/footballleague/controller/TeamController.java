@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TeamController {
     private final TeamService teamService;
+    /*Need test*/
+
     @Operation(summary = "Get teams based on search params. If none provided, return all.")
     @GetMapping
     public ResponseEntity<?> getTeams(TeamFilterRequestDTO teamFilterRequestDTO) {
@@ -29,12 +31,15 @@ public class TeamController {
                 .map(TeamResponseDTO::fromModel)
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
+    /*Need test*/
+
     @Operation(summary = "Get team by id.")
     @GetMapping("/{teamId}")
     public ResponseEntity<?> getTeamById(@PathVariable("teamId") UUID teamId) {
         Team team = teamService.getTeamById(teamId);
         return new ResponseEntity<>(TeamResponseDTO.fromModel(team), HttpStatus.OK);
     }
+    /*Need test*/
 
     @Operation(summary = "Create team.")
     @PostMapping
@@ -42,6 +47,7 @@ public class TeamController {
         Team team = teamService.createTeam(dto);
         return new ResponseEntity<>(TeamResponseDTO.fromModel(team), HttpStatus.OK);
     }
+    /*Need test*/
 
     @Operation(summary = "Update team by id.")
     @PutMapping("/{teamId}")
